@@ -12,21 +12,21 @@
             <link rel="stylesheet" href="http://xsodia.space/payroll/assets/css/animate.css">
             <link rel="stylesheet" href="http://xsodia.space/payroll/assets/css/clock.css">
     </head>
-    <body class="o-page">  
+    <body class="o-page"> 
 
                     <div class="o-page__sidebar js-page-sidebar">
     <div class="c-sidebar">
-
         
         <h4 class="c-sidebar__title">Dashboard</h4>
         <ul class="c-sidebar__list"> 
                              
-                                            <li class="c-sidebar__item active">
-                            <a class="c-sidebar__link" href="http://xsodia.space/payroll">
-                                <i class="fa fa-home u-mr-xsmall"></i>
-                                Dashboard
-                            </a>
-                        </li> 
+                                                                        <li class="c-sidebar__item">
+                                <a class="c-sidebar__link" href="http://xsodia.space/payroll">
+                                    <i class="fa fa-home u-mr-xsmall"></i>
+                                    Dashboard
+                                </a>
+                            </li> 
+                         
                                                                  
                                                                         <li class="c-sidebar__item">
                                 <a class="c-sidebar__link" href="http://xsodia.space/payroll/audittrail">
@@ -35,12 +35,12 @@
                                 </a>
                             </li> 
                          
-                                                                                                            <li class="c-sidebar__item has-submenu">
-                            <a class="c-sidebar__link" data-toggle="collapse" href="#sidebar-submenu_2" aria-expanded="false" aria-controls="sidebar-submenu_2">
+                                                                                                            <li class="c-sidebar__item has-submenu is-open">
+                            <a class="c-sidebar__link active" data-toggle="collapse" href="#sidebar-submenu" aria-expanded="true" aria-controls="sidebar-submenu">
                                 <i class="fa fa-flag-checkered u-mr-xsmall"></i> Departments
                             </a>
-                            <ul class="c-sidebar__submenu collapse" id="sidebar-submenu_2">
-                                                                                                            <li><a class="c-sidebar__link" href=" {{ URL::route('department') }}">All Departments</a></li> 
+                            <ul class="c-sidebar__submenu collapse show" id="sidebar-submenu">
+                                                                                                            <li><a class="c-sidebar__link" href="{{ URL::route('department') }}">All Departments</a></li> 
                                                                                                                                                 <li><a class="c-sidebar__link" href="{{ URL::route('department.add') }}">Add Department</a></li> 
                                                                      
                             </ul>
@@ -142,7 +142,7 @@
         <span class="c-sidebar-toggle__bar"></span>
     </button><!-- // .c-sidebar-toggle -->
 
-    <h2 class="c-navbar__title u-mr-auto">HRIS</h2> 
+    <h2 class="c-navbar__title u-mr-auto">PAYROLL MANAGEMENT SYSTEM</h2> 
 
     <div class="c-dropdown dropdown">
         <a  class="c-avatar c-avatar--xsmall has-dropdown dropdown-toggle" href="#" id="dropdwonMenuAvatar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -156,223 +156,73 @@
         </div>
     </div>
 </header>
-                <div class="c-toolbar u-justify-center u-mb-small">
-        <div class="col-12 col-lg-10 col-xl-8">
-            <div class="row">
-                <div class="col-6 col-md-3 c-toolbar__state">
-                    <h4 class="c-toolbar__state-number">5</h4>
-                    <span class="c-toolbar__state-title">Employees</span>
-                </div>
-                <div class="col-6 col-md-3 c-toolbar__state">
-                    <h4 class="c-toolbar__state-number">5</h4>
-                    <span class="c-toolbar__state-title">Leaves</span>
-                </div>
-                <div class="col-6 col-md-3 c-toolbar__state">
-                    <h4 class="c-toolbar__state-number">3</h4>
-                    <span class="c-toolbar__state-title">Loans</span>
-                </div>
-                <div class="col-6 col-md-3 c-toolbar__state">
-                    <h4 class="c-toolbar__state-number">0</h4>
-                    <span class="c-toolbar__state-title">Deductions</span>
-                </div>
-            </div>
-        </div>
-    </div> 
-
-    <div class="container-fluid">
+              
+    <div class="container-fluid" style="margin:1%; padding:1%; width:98%; margin-top: 2%; background-color: white;">
         <div class="row">
             <div class="col-lg-12 col-md-12">
-                <div class="c-table-responsive@desktop">
+                <div class="c-table-responsive@desktop"> 
                     <table class="c-table">
                         <caption class="c-table__title">
-                            Audit Trail <small>total of <b style="color: red">10</b> result/s</small>
+                            Departments
                         </caption>
                         <thead class="c-table__head c-table__head--slim">
                             <tr class="c-table__row">
                                 <th class="c-table__cell c-table__cell--head"></th>
-                                <th class="c-table__cell c-table__cell--head">Module</th>
-                                <th class="c-table__cell c-table__cell--head">Action</th>
-                                <th class="c-table__cell c-table__cell--head">Date</th> 
+                                <th class="c-table__cell c-table__cell--head">Department</th> 
+                                <th class="c-table__cell c-table__cell--head">Created</th> 
+                                <th class="c-table__cell c-table__cell--head">Updated</th> 
+                                <th class="c-table__cell c-table__cell--head">Action</th> 
                             </tr>
                         </thead>
 
                         <tbody>
-                                                                                                <tr class="c-table__row">
-                                        <td class="c-table__cell c-table__cell--img o-media">
-
-                                            <div class="o-media__img u-mr-xsmall">
-                                                <img src="http://xsodia.space/payroll/assets/john.jpg" style="width:56px;">
+                            @foreach($departments as $data)
+                                                                                                <tr class="c-table__row"> 
+          
+                                        <td class="c-table__cell"></td> 
+                                        <td class="c-table__cell"><b>{{$data->department_name}}</b></td>   
+                                        <td class="c-table__cell"></td>  
+                                        <td class="c-table__cell"></td>  
+                                        <td class="c-table__cell">
+                                            <div class="c-dropdown dropdown">
+                                                <button class="c-btn c-btn--secondary has-dropdown dropdown-toggle" id="dropdownMenuButton21" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Actions</button>
+                                                
+                                                <div class="c-dropdown__menu dropdown-menu" aria-labelledby="dropdownMenuButton21">
+                                                    <a class="c-dropdown__item dropdown-item" href="http://xsodia.space/payroll/departments/update/12">Update</a> 
+                                                    <a class="confirm c-dropdown__item dropdown-item" href="http://xsodia.space/payroll/departments/delete/12">Delete</a>
+                                                </div>
                                             </div>
-
-                                            <div class="o-media__body">
-                                                John Doe
-                                                <span class="u-block u-text-mute u-text-xsmall">Admin</span>
-                                            </div>
-                                        </td>
-         
-                                        <td class="c-table__cell">Login</td>  
-                                        <td class="c-table__cell">Logged In</td>  
-                                        <td class="c-table__cell">3 seconds ago</td>  
+                                        </td>  
                                     </tr> 
-                                                                    <tr class="c-table__row">
-                                        <td class="c-table__cell c-table__cell--img o-media">
 
-                                            <div class="o-media__img u-mr-xsmall">
-                                                <img src="http://xsodia.space/payroll/assets/john.jpg" style="width:56px;">
-                                            </div>
-
-                                            <div class="o-media__body">
-                                                John Doe
-                                                <span class="u-block u-text-mute u-text-xsmall">Admin</span>
-                                            </div>
-                                        </td>
-         
-                                        <td class="c-table__cell">Login</td>  
-                                        <td class="c-table__cell">Logged In</td>  
-                                        <td class="c-table__cell">23 seconds ago</td>  
-                                    </tr> 
-                                                                    <tr class="c-table__row">
-                                        <td class="c-table__cell c-table__cell--img o-media">
-
-                                            <div class="o-media__img u-mr-xsmall">
-                                                <img src="http://xsodia.space/payroll/assets/john.jpg" style="width:56px;">
-                                            </div>
-
-                                            <div class="o-media__body">
-                                                John Doe
-                                                <span class="u-block u-text-mute u-text-xsmall">Admin</span>
-                                            </div>
-                                        </td>
-         
-                                        <td class="c-table__cell">Login</td>  
-                                        <td class="c-table__cell">Logged In</td>  
-                                        <td class="c-table__cell">5 minutes ago</td>  
-                                    </tr> 
-                                                                    <tr class="c-table__row">
-                                        <td class="c-table__cell c-table__cell--img o-media">
-
-                                            <div class="o-media__img u-mr-xsmall">
-                                                <img src="http://xsodia.space/payroll/assets/john.jpg" style="width:56px;">
-                                            </div>
-
-                                            <div class="o-media__body">
-                                                John Doe
-                                                <span class="u-block u-text-mute u-text-xsmall">Admin</span>
-                                            </div>
-                                        </td>
-         
-                                        <td class="c-table__cell">Loan Types</td>  
-                                        <td class="c-table__cell">Added new data</td>  
-                                        <td class="c-table__cell">7 minutes ago</td>  
-                                    </tr> 
-                                                                    <tr class="c-table__row">
-                                        <td class="c-table__cell c-table__cell--img o-media">
-
-                                            <div class="o-media__img u-mr-xsmall">
-                                                <img src="http://xsodia.space/payroll/assets/john.jpg" style="width:56px;">
-                                            </div>
-
-                                            <div class="o-media__body">
-                                                John Doe
-                                                <span class="u-block u-text-mute u-text-xsmall">Admin</span>
-                                            </div>
-                                        </td>
-         
-                                        <td class="c-table__cell">Login</td>  
-                                        <td class="c-table__cell">Logged In</td>  
-                                        <td class="c-table__cell">8 minutes ago</td>  
-                                    </tr> 
-                                                                    <tr class="c-table__row">
-                                        <td class="c-table__cell c-table__cell--img o-media">
-
-                                            <div class="o-media__img u-mr-xsmall">
-                                                <img src="http://xsodia.space/payroll/assets/john.jpg" style="width:56px;">
-                                            </div>
-
-                                            <div class="o-media__body">
-                                                John Doe
-                                                <span class="u-block u-text-mute u-text-xsmall">Admin</span>
-                                            </div>
-                                        </td>
-         
-                                        <td class="c-table__cell">Loan Application</td>  
-                                        <td class="c-table__cell">Added loan application for employee ID #5</td>  
-                                        <td class="c-table__cell">9 minutes ago</td>  
-                                    </tr> 
-                                                                    <tr class="c-table__row">
-                                        <td class="c-table__cell c-table__cell--img o-media">
-
-                                            <div class="o-media__img u-mr-xsmall">
-                                                <img src="http://xsodia.space/payroll/assets/john.jpg" style="width:56px;">
-                                            </div>
-
-                                            <div class="o-media__body">
-                                                John Doe
-                                                <span class="u-block u-text-mute u-text-xsmall">Admin</span>
-                                            </div>
-                                        </td>
-         
-                                        <td class="c-table__cell">Login</td>  
-                                        <td class="c-table__cell">Logged In</td>  
-                                        <td class="c-table__cell">11 minutes ago</td>  
-                                    </tr> 
-                                                                    <tr class="c-table__row">
-                                        <td class="c-table__cell c-table__cell--img o-media">
-
-                                            <div class="o-media__img u-mr-xsmall">
-                                                <img src="http://xsodia.space/payroll/assets/john.jpg" style="width:56px;">
-                                            </div>
-
-                                            <div class="o-media__body">
-                                                John Doe
-                                                <span class="u-block u-text-mute u-text-xsmall">Admin</span>
-                                            </div>
-                                        </td>
-         
-                                        <td class="c-table__cell">Employees</td>  
-                                        <td class="c-table__cell">Updated employee ID #5</td>  
-                                        <td class="c-table__cell">12 minutes ago</td>  
-                                    </tr> 
-                                                                    <tr class="c-table__row">
-                                        <td class="c-table__cell c-table__cell--img o-media">
-
-                                            <div class="o-media__img u-mr-xsmall">
-                                                <img src="http://xsodia.space/payroll/assets/john.jpg" style="width:56px;">
-                                            </div>
-
-                                            <div class="o-media__body">
-                                                John Doe
-                                                <span class="u-block u-text-mute u-text-xsmall">Admin</span>
-                                            </div>
-                                        </td>
-         
-                                        <td class="c-table__cell">Employees</td>  
-                                        <td class="c-table__cell">Added new employee</td>  
-                                        <td class="c-table__cell">12 minutes ago</td>  
-                                    </tr> 
-                                                                    <tr class="c-table__row">
-                                        <td class="c-table__cell c-table__cell--img o-media">
-
-                                            <div class="o-media__img u-mr-xsmall">
-                                                <img src="http://xsodia.space/payroll/assets/john.jpg" style="width:56px;">
-                                            </div>
-
-                                            <div class="o-media__body">
-                                                John Doe
-                                                <span class="u-block u-text-mute u-text-xsmall">Admin</span>
-                                            </div>
-                                        </td>
-         
-                                        <td class="c-table__cell">Login</td>  
-                                        <td class="c-table__cell">Logged In</td>  
-                                        <td class="c-table__cell">20 minutes ago</td>  
-                                    </tr> 
-                                                                                    </tbody>
-                    </table>
+                                @endforeach
+                                               </tbody>                   
+                             
+                                                               
+                                          
+                    </table> 
+                    
+                    <br> 
+<div class="row">
+	<div class="col-md-6"> 
+		<ul class="c-pagination__list"> 
+		    		        		            <li class="c-pagination__item"><a class="c-pagination__link is-active"><b>1</b></a></li> 
+		        		    		</ul> 
+	</div>
+	<div class="col-md-6" style="text-align: right;"> 
+		<small>
+		    Page <b style="color: red;">1</b> 
+		    of 1 |
+		    Total of <b style="color: red">7</b> 
+		    result/s
+		</small>
+	</div>
+</div>
+	 
                 </div> 
             </div>
-        </div>  
-    </div>   
+        </div> 
+    </div>    
 
         </main>  
 
@@ -389,7 +239,12 @@
             });
         </script>
         
-        
+            <style>
+        .is-active{
+            font-weight: bolder;
+        }
+    </style>
+
                 
         <style>
 	.alert-card{
