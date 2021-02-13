@@ -19,10 +19,10 @@ foreach(glob(__DIR__ . "/modules/*.php") as $filename) {
     include $filename;
 }
 
-// Route::group(['prefix' => 'payroll'], function () {
-//     Route::get('/', [DepartmentController::class, 'index'])->name('home');
-//     Route::get('/department', [DepartmentController::class, 'department'])->name('department');
-//     Route::get('/department/add', [DepartmentController::class, 'department_add'])->name('department.add');
-//     Route::post('/department/save', [DepartmentController::class, 'department_save'])->name('department.save');
-// });
+Route::group(['prefix' => 'payroll'], function () {
+    Route::get('/', [DepartmentController::class, 'index'])->name('home');
+    Route::get('/department', [DepartmentController::class, 'department'])->name('department');
+    Route::get('/department/add', [DepartmentController::class, 'department_add'])->name('department.add');
+    Route::post('/department/save', [DepartmentController::class, 'department_save'])->name('department.save');
+});
 

@@ -172,12 +172,12 @@
             </div> 
             <div class="col-lg-12 col-md-12" style="padding: 2%;"> 
                 <form method="post" action="{{ URL::route('department.save') }}"> 
-                    <input type="hidden" name="_token" value="AdvX7tRgDv9JwfNYLihlGAwaLkjoHChI6uFFwmUT">
+                    @csrf
                     <div class="row"> 
                         <div class="col-sm-4 col-md-4 u-mb-medium">
                             <div class="c-form-field">
                                 <label class="c-field__label" for="input17">Department</label>
-                                <input class="c-input c-input--info" id="input17" type="text" required name="department">
+                                <input class="c-input c-input--info" id="input17" type="text" required name="department_name">
                             </div>
                         </div> 
 
