@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DepartmentController;
-use App\Http\Controllers\ContributionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +15,14 @@ use App\Http\Controllers\ContributionController;
 |
 */
 
-
-foreach (glob(__DIR__ . "/modules/*.php") as $filename) {
+foreach(glob(__DIR__ . "/modules/*.php") as $filename) {
     include $filename;
 }
+
+Route::group(['prefix' => 'payroll'], function () {
+    Route::get('/', [DepartmentController::class, 'index'])->name('home');
+    Route::get('/department', [DepartmentController::class, 'department'])->name('department');
+    Route::get('/department/add', [DepartmentController::class, 'department_add'])->name('department.add');
+    Route::post('/department/save', [DepartmentController::class, 'department_save'])->name('department.save');
+});
 

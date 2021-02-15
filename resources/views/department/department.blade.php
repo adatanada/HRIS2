@@ -7,13 +7,10 @@
             <title>HRIS</title> 
             <meta name="viewport" content="width=device-width, initial-scale=1"> 
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600" > 
-            <link rel="icon" href="http://xsodia.space/payroll/assets/icon.png"> 
-            <link rel="stylesheet" href="http://xsodia.space/payroll/assets/css/main.min3661.css?v=2.0">
-            <link rel="stylesheet" href="http://xsodia.space/payroll/assets/css/animate.css">
-            <link rel="stylesheet" href="http://xsodia.space/payroll/assets/css/clock.css">
+            <link rel="stylesheet" href="{{URL::asset('assets/css/bundle.css')}}">
     </head>
     <body class="o-page"> 
-
+    
                     <div class="o-page__sidebar js-page-sidebar">
     <div class="c-sidebar">
         
