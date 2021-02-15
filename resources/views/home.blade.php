@@ -19,7 +19,7 @@
         <ul class="c-sidebar__list"> 
                              
                                             <li class="c-sidebar__item active">
-                            <a class="c-sidebar__link" href="http://xsodia.space/payroll">
+                            <a class="c-sidebar__link" href=" {{ URL::route('home') }}">
                                 <i class="fa fa-home u-mr-xsmall"></i>
                                 Dashboard
                             </a>
