@@ -22,7 +22,7 @@
         <ul class="c-sidebar__list"> 
                              
                                                                         <li class="c-sidebar__item">
-                                <a class="c-sidebar__link" href="http://xsodia.space/payroll">
+                                <a class="c-sidebar__link" href=" {{ URL::route('home') }}">
                                     <i class="fa fa-home u-mr-xsmall"></i>
                                     Dashboard
                                 </a>
@@ -41,8 +41,8 @@
                                 <i class="fa fa-flag-checkered u-mr-xsmall"></i> Departments
                             </a>
                             <ul class="c-sidebar__submenu collapse show" id="sidebar-submenu">
-                                                                                                            <li><a class="c-sidebar__link" href="http://xsodia.space/payroll/departments">All Departments</a></li> 
-                                                                                                                                                <li><a class="c-sidebar__link" href="http://xsodia.space/payroll/departments/add">Add Department</a></li> 
+                                                                                                            <li><a class="c-sidebar__link" href="{{ URL::route('department') }}">All Departments</a></li> 
+                                                                                                                                                <li><a class="c-sidebar__link" href="{{ URL::route('department.add') }}">Add Department</a></li> 
                                                                      
                             </ul>
                         </li> 

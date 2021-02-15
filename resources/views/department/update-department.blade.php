@@ -4,21 +4,25 @@
     <head>
             <meta charset="utf-8">
             <meta http-equiv="x-ua-compatible" content="ie=edge">
-            <title>HRIS</title> 
+            <title>Cyan Payroll Management System</title> 
             <meta name="viewport" content="width=device-width, initial-scale=1"> 
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600" > 
             <link rel="stylesheet" href="{{URL::asset('assets/css/bundle.css')}}">
+
     </head>
-    <body class="o-page"> 
-    
+    <body class="o-page">  
+
                     <div class="o-page__sidebar js-page-sidebar">
     <div class="c-sidebar">
+        <a class="c-sidebar__brand"> 
+            <img class="c-sidebar__brand-img" src="http://xsodia.space/payroll/assets/logo.png" alt="Logo" style="width: 50%; margin-left: 15%;"> 
+        </a>
         
         <h4 class="c-sidebar__title">Dashboard</h4>
         <ul class="c-sidebar__list"> 
                              
                                                                         <li class="c-sidebar__item">
-                                <a class="c-sidebar__link" href="http://xsodia.space/payroll">
+                                <a class="c-sidebar__link" href=" {{ URL::route('home') }}">
                                     <i class="fa fa-home u-mr-xsmall"></i>
                                     Dashboard
                                 </a>
@@ -26,7 +30,7 @@
                          
                                                                  
                                                                         <li class="c-sidebar__item">
-                                <a class="c-sidebar__link" href="http://xsodia.space/payroll/audittrail">
+                                <a class="c-sidebar__link" href="">
                                     <i class="fa fa-chain-broken u-mr-xsmall"></i>
                                     Audit Trail
                                 </a>
@@ -130,9 +134,9 @@
     </div> 
 </div>  
         
-    <main class="o-page__content" style="padding-bottom: 5%;">
+        <main class="o-page__content" style="padding-bottom: 5%;">
             
-    <header class="c-navbar">
+            <header class="c-navbar">
     <button class="c-sidebar-toggle u-mr-small">
         <span class="c-sidebar-toggle__bar"></span>
         <span class="c-sidebar-toggle__bar"></span>
@@ -160,65 +164,37 @@
                 <div class="c-table-responsive@desktop"> 
                     <table class="c-table">
                         <caption class="c-table__title">
-                            Loan Type
-                        </caption>
-                        <thead class="c-table__head c-table__head--slim">
-                            <tr class="c-table__row">
-                                <th class="c-table__cell c-table__cell--head"></th>
-                                <th class="c-table__cell c-table__cell--head">Loan Type</th> 
-                                <th class="c-table__cell c-table__cell--head">Description</th> 
-                                <th class="c-table__cell c-table__cell--head">Created</th> 
-                                <th class="c-table__cell c-table__cell--head">Updated</th> 
-                                <th class="c-table__cell c-table__cell--head">Action</th> 
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            @foreach($data as $row)                                                                                               <tr class="c-table__row"> 
-          
-                                        <td class="c-table__cell"></td> 
-                                        <td class="c-table__cell"><b>{{$row->type}}</b></td>   
-                                        <td class="c-table__cell"><b>{{$row->description}}</b></td>   
-                                        <td class="c-table__cell"><b>{{$row->created_at}}</b></td>  
-                                        <td class="c-table__cell"><b>{{$row->updated_at}}</b></td>  
-                                        <td class="c-table__cell">
-                                            <div class="c-dropdown dropdown">
-                                                <button class="c-btn c-btn--secondary has-dropdown dropdown-toggle" id="dropdownMenuButton21" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Actions</button>
-                                                
-                                                <div class="c-dropdown__menu dropdown-menu" aria-labelledby="dropdownMenuButton21">
-                                                    <a class="c-dropdown__item dropdown-item" href="{{ URL::route('loantype.update', $row->id )}}">Update</a> 
-                                                    <a class="confirm c-dropdown__item dropdown-item" href="{{ URL::route('loantype.delete', $row->id )}}">Delete</a>
-                                                </div>
-                                            </div>
-                                        </td>  
-                                    </tr> 
-
-                                @endforeach
-                                               </tbody>                   
-                             
-                                                               
-                                          
-                    </table> 
-                    
-                    <br> 
-<div class="row">
-	<div class="col-md-6"> 
-		<ul class="c-pagination__list"> 
-		    		        		            <li class="c-pagination__item"><a class="c-pagination__link is-active"><b>1</b></a></li> 
-		        		    		</ul> 
-	</div>
-	<div class="col-md-6" style="text-align: right;"> 
-		<small>
-		    Page <b style="color: red;">1</b> 
-		    of 1 |
-		    Total of <b style="color: red">7</b> 
-		    result/s
-		</small>
-	</div>
-</div>
-	 
+                            Update Department
+                        </caption> 
+                    </table>
+                <span class="c-divider u-mv-medium"></span>
                 </div> 
-            </div>
+            </div> 
+            <div class="col-lg-12 col-md-12" style="padding: 2%;"> 
+                <form method="post" action="{{ URL::route('department.update.save',$data->id) }}"> 
+                    @csrf
+                    <div class="row"> 
+                        <div class="col-sm-4 col-md-4 u-mb-medium">
+                            <div class="c-form-field">
+                                <label class="c-field__label" for="input17">Department</label>
+                                <input class="c-input c-input--info" id="input17" type="text" required name="department_name" value = "{{$data->department_name}}">
+                            </div>
+                        </div> 
+
+                        <div class="col-sm-12 col-md-12 u-mb-medium">
+                            <span class="c-divider u-mv-medium"></span>
+                        </div>
+
+                        <div class="col-sm-2 col-md-2 u-mb-medium">
+                            <div class="c-field">
+                                <div class="col u-mb-medium">
+                                    <button class="c-btn c-btn--info">Save</button>
+                                </div>
+                            </div>
+                        </div> 
+                    </div> 
+                </form> 
+            </div> 
         </div> 
     </div>    
 
@@ -237,12 +213,7 @@
             });
         </script>
         
-            <style>
-        .is-active{
-            font-weight: bolder;
-        }
-    </style>
-
+        
                 
         <style>
 	.alert-card{
