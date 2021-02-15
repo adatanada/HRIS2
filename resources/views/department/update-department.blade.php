@@ -30,7 +30,7 @@
                          
                                                                  
                                                                         <li class="c-sidebar__item">
-                                <a class="c-sidebar__link" href="http://xsodia.space/payroll/audittrail">
+                                <a class="c-sidebar__link" href="">
                                     <i class="fa fa-chain-broken u-mr-xsmall"></i>
                                     Audit Trail
                                 </a>
@@ -164,20 +164,20 @@
                 <div class="c-table-responsive@desktop"> 
                     <table class="c-table">
                         <caption class="c-table__title">
-                            Add Department
+                            Update Department
                         </caption> 
                     </table>
                 <span class="c-divider u-mv-medium"></span>
                 </div> 
             </div> 
             <div class="col-lg-12 col-md-12" style="padding: 2%;"> 
-                <form method="post" action="{{ URL::route('department.save') }}"> 
+                <form method="post" action="{{ URL::route('department.update.save',$data->id) }}"> 
                     @csrf
                     <div class="row"> 
                         <div class="col-sm-4 col-md-4 u-mb-medium">
                             <div class="c-form-field">
                                 <label class="c-field__label" for="input17">Department</label>
-                                <input class="c-input c-input--info" id="input17" type="text" required name="department_name">
+                                <input class="c-input c-input--info" id="input17" type="text" required name="department_name" value = "{{$data->department_name}}">
                             </div>
                         </div> 
 

@@ -18,5 +18,6 @@ class Department extends Model
         'department_name',
         'created_at',
         'updated_at',
+        'deleted_at',
     ];
 }

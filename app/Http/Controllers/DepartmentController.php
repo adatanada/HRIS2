@@ -46,5 +46,26 @@ class DepartmentController extends Controller
 
         return Redirect::route('department');
     }
+
+    public function department_update($id)
+    {
+        return view('department.update-department')->with([
+            'data' => $this->department->find($id)
+        ]);
+    }
+
+    public function department_update_save($id)
+    {
+        $db = $this->department->find($id)->update($this->request->except('_token'));
+        return Redirect::route('department')->with([
+            'success' => 'Department has been updated !'
+        ]);
+    }
+
+    public function department_delete($id)
+    {
+        $db = $this->department->findorfail($id)->delete();
+        return Redirect::route('department');
+    }
 }
 
