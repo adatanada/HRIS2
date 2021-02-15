@@ -24,22 +24,51 @@ class LoanTypeController extends Controller
 
     public function Index(){
 
-       return dd('LoanType');
+        return view('loantype.loantypeindex')
+        ->with([
+            'data' => $this->loantype->all()
+        ]);
     }
 
-    public function Create(){
+    public function Form($iD = null){        
+      
+        if ($iD  != null ){  
+            $data = $this->loantype->find($iD);
+                        return view('loantype.update_loantype')->with([
+                        'data' => $data
+                        ]);          
+            
+        }   
 
-        return dd('create');
+        return view('loantype.add_loantype');        
     }
 
-    public function Update($id){
+    public function Save($iD = null){
 
-        return dd($id);
+        // $this->request->validate($this->rules);
+
+        if ($iD != null){  
+            $db = $this->loantype->find($iD)->update($this->request->except('_token'));                        
+        }
+        else {
+            $db = $this->loantype->create($this->request->except('_token'));  
+        }
+        
+        // $db = $this->loantype->create($this->request->except('_token'));           
+        return Redirect::route('loantype');
+
+        
     }
 
-    public function Save($id,$type = null){
+    public function Delete($iD)
+    {
+       $this->loantype->find($iD)->delete();
 
-        return dd($id);
+       return Redirect::route('loantype')->with([
+        'success'=> 'Loan has been deleted!',
+        'type' => 'danger'
+
+    ]);
     }
 
 }
