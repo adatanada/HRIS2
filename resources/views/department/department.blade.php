@@ -7,13 +7,10 @@
             <title>HRIS</title> 
             <meta name="viewport" content="width=device-width, initial-scale=1"> 
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600" > 
-            <link rel="icon" href="http://xsodia.space/payroll/assets/icon.png"> 
-            <link rel="stylesheet" href="http://xsodia.space/payroll/assets/css/main.min3661.css?v=2.0">
-            <link rel="stylesheet" href="http://xsodia.space/payroll/assets/css/animate.css">
-            <link rel="stylesheet" href="http://xsodia.space/payroll/assets/css/clock.css">
+            <link rel="stylesheet" href="{{URL::asset('assets/css/bundle.css')}}">
     </head>
     <body class="o-page"> 
-
+    
                     <div class="o-page__sidebar js-page-sidebar">
     <div class="c-sidebar">
         
@@ -21,7 +18,7 @@
         <ul class="c-sidebar__list"> 
                              
                                                                         <li class="c-sidebar__item">
-                                <a class="c-sidebar__link" href="http://xsodia.space/payroll">
+                                <a class="c-sidebar__link" href=" {{ URL::route('home') }}">
                                     <i class="fa fa-home u-mr-xsmall"></i>
                                     Dashboard
                                 </a>
@@ -181,15 +178,15 @@
           
                                         <td class="c-table__cell"></td> 
                                         <td class="c-table__cell"><b>{{$data->department_name}}</b></td>   
-                                        <td class="c-table__cell"></td>  
-                                        <td class="c-table__cell"></td>  
+                                        <td class="c-table__cell">{{$data->created_at}}</td>  
+                                        <td class="c-table__cell">{{$data->updated_at}}</td>   
                                         <td class="c-table__cell">
                                             <div class="c-dropdown dropdown">
                                                 <button class="c-btn c-btn--secondary has-dropdown dropdown-toggle" id="dropdownMenuButton21" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Actions</button>
                                                 
                                                 <div class="c-dropdown__menu dropdown-menu" aria-labelledby="dropdownMenuButton21">
-                                                    <a class="c-dropdown__item dropdown-item" href="http://xsodia.space/payroll/departments/update/12">Update</a> 
-                                                    <a class="confirm c-dropdown__item dropdown-item" href="http://xsodia.space/payroll/departments/delete/12">Delete</a>
+                                                    <a class="c-dropdown__item dropdown-item" href="{{ URL::route('department.update', $data->id) }}">Update</a> 
+                                                    <a class="confirm c-dropdown__item dropdown-item" href="{{ URL::route('department.delete', $data->id) }}" onclick="return confirm('Are you sure you want to delete?')">Delete</a>
                                                 </div>
                                             </div>
                                         </td>  
