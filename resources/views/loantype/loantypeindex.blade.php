@@ -8,15 +8,13 @@
                 <div class="c-table-responsive@desktop">
                     <table class="c-table">
                         <caption class="c-table__title">
-                            Contribution
+                            Loan Type
                         </caption>
                         <thead class="c-table__head c-table__head--slim">
                             <tr class="c-table__row">
                                 <th class="c-table__cell c-table__cell--head"></th>
-                                <th class="c-table__cell c-table__cell--head">Base Range</th>
-                                <th class="c-table__cell c-table__cell--head">Monthly</th>
-                                <th class="c-table__cell c-table__cell--head">Employee</th>
-                                <th class="c-table__cell c-table__cell--head">Employer</th>
+                                <th class="c-table__cell c-table__cell--head">Loan Type</th>
+                                <th class="c-table__cell c-table__cell--head">Description</th>
                                 <th class="c-table__cell c-table__cell--head">Created</th>
                                 <th class="c-table__cell c-table__cell--head">Updated</th>
                                 <th class="c-table__cell c-table__cell--head">Action</th>
@@ -26,23 +24,21 @@
                         <tbody>
                             @foreach($data as $row) <tr class="c-table__row">
                                 <td class="c-table__cell"></td>
-                                <td class="c-table__cell"><b>{{$row->range}}</b></td>
-                                <td class="c-table__cell"><b>{{$row->monthly}}</b></td>
-                                <td class="c-table__cell"><b>{{$row->employeeshare}}</b></td>
-                                <td class="c-table__cell"><b>{{$row->employershare}}</b></td>
+                                <td class="c-table__cell"><b>{{$row->type}}</b></td>
+                                <td class="c-table__cell"><b>{{$row->description}}</b></td>
                                 <td class="c-table__cell"><b>{{$row->created_at}}</b></td>
                                 <td class="c-table__cell"><b>{{$row->updated_at}}</b></td>
                                 <td class="c-table__cell">
                                     <div class="c-dropdown dropdown">
                                         <button class="c-btn c-btn--secondary has-dropdown dropdown-toggle"
                                             id="dropdownMenuButton21" data-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="true">Actions</button>
+                                            aria-expanded="false">Actions</button>
                                         <div class="c-dropdown__menu dropdown-menu"
                                             aria-labelledby="dropdownMenuButton21">
                                             <a class="c-dropdown__item dropdown-item"
-                                                href="{{ URL::route('contribution.form',$row->type,$row->id )}}">Update</a>
+                                                href="{{ URL::route('loantype.form',$row->id )}}">Update</a>
                                             <a class="confirm c-dropdown__item dropdown-item"
-                                                href="{{ URL::route('contribution.delete', $row->id )}}">Delete</a>
+                                                href="{{ URL::route('loantype.delete', $row->id )}}">Delete</a>
                                         </div>
                                     </div>
                                 </td>

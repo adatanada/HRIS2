@@ -25,23 +25,59 @@ class ContributionController extends Controller
         $this->request         = $request;
     }
 
-    public function Index($type = null){
+    public function Index($type){
 
-        return dd('Loan');
-     }
- 
-     public function Create($type = null){
- 
-         return dd('create');
-     }
- 
-     public function Update($id,$type = null){
- 
-         return dd($id);
-     }
- 
-     public function Save($id,$type = null){
- 
-         return dd($id);
-     }
+        return view('contribution.contributionindex')
+        ->with([
+            'data' => $this->contribution->where('type', '=', $type)
+            ->get()
+        ]);
+    }
+
+    public function Form($type,$iD = null){ 
+        if ($iD  != null ){  
+            $data = $this->contribution->find($iD);
+                        return view('contribution.update_contribution')->with([
+                        'data' => $data
+                        ]); 
+        }   
+
+        return view('contribution.add_contribution');        
+    }
+
+    public function Save($iD = null){
+
+        // $this->request->validate($this->rules);
+
+        if ($iD != null){  
+            $db = $this->contribution->find($iD)->update($this->request->except('_token'));                        
+        }
+        else {
+            $db = $this->contribution->create($this->request->except('_token'));  
+            //    $db = $this->contribution->create([
+            //         'type' => $this->request->type
+            //         ,'range' => $this->request->range
+            //         ,'monthly' => $this->request->monthly
+            //         ,'employeeshare' => $this->request->employeeshare
+            //         ,'employershare' => $this->request->employershare
+            //     ]);
+        }   
+
+        // $this->Index($this->request->type);
+        // return dd($this);
+
+        return Redirect::route('contribution',[$this->request->type]);    
+            
+    }
+
+    public function Delete($iD)
+    {
+       $this->contribution->find($iD)->delete();
+
+       return Redirect::route('contribution')->with([
+        'success'=> 'Contribution has been deleted!',
+        'type' => 'danger'
+
+        ]);
+    }
 }

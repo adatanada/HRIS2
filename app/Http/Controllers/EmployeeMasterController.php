@@ -47,5 +47,15 @@ class EmployeeMasterController extends Controller
  
          return dd($id);
      }
+    public function Contribution($type){ 
+        $data = DB::table('contribution')
+        ->where('type', '=', $type)
+        ->get();
+    }
+    public function Department(){ 
+        $data = DB::table('department')->get();
+    }
+  
+
 }
 

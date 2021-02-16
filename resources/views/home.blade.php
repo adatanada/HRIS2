@@ -58,8 +58,8 @@
                             </a>
                             <ul class="c-sidebar__submenu collapse" id="sidebar-submenu_4">
                                                                                                             <li><a class="c-sidebar__link" href="http://xsodia.space/payroll/loans">All Loans</a></li> 
-                                                                                                                                                <li><a class="c-sidebar__link" href="http://xsodia.space/payroll/loans/types">Loan Types</a></li> 
-                                                                                                                                                <li><a class="c-sidebar__link" href="http://xsodia.space/payroll/loans/types/add">Add Loan Types</a></li> 
+                                                                                                                                                <li><a class="c-sidebar__link" href="{{ URL::route('loantype')}}">Loan Types</a></li> 
+                                                                                                                                                <li><a class="c-sidebar__link" href="{{ URL::route('loantype.form')}}">Add Loan Types</a></li> 
                                                                      
                             </ul>
                         </li> 
