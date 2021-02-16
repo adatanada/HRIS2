@@ -11,10 +11,9 @@
     
     @yield('layout')
 
-<script src="https://xsodia.space/payroll/docs/assets/js/bundle.js"></script>
-<script src="http://xsodia.space/payroll/assets/js/jquery.js"></script>
-<script src="http://xsodia.space/payroll/assets/js/main.min3661.js?v=2.0"></script>
- <script src="http://xsodia.space/payroll/assets/js/clock.js"></script>
+    <script src="https://xsodia.space/payroll/docs/assets/js/bundle.js"></script>
+
+
  <script type="text/javascript">
             $('body .confirm').click(function(){
                 if(window.confirm("Are you sure you want to proceed ?")){

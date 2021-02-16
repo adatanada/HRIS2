@@ -8,44 +8,57 @@ use Redirect;
 
 class EmployeeMasterController extends Controller
 {
-    protected $loan;
+    protected $employee;
     protected $request;
 
-    protected $rules = [
-        'fname' => 'required'
-        ,'lname' => 'required'
-        ,'mname' => 'required'
-        ,'contact' => 'required'
-        ,'address' => 'required'
-        ,'birhtday' => 'required'
-        ,'gender' => 'required'
-        ,'designation' => 'required'
-        ,'salary' => 'required'
-        ,'file_path' => 'required'
-        ,'sssid' => 'required'
-        ,'pagibigid'=> 'required'
-        ,'philhealthid' => 'required'
-        ,'departmentid' => 'required'
-    ];
+    // protected $rules = [
+    //     'fname' => 'required'
+    //     ,'lname' => 'required'
+    //     ,'mname' => 'required'
+    //     ,'contact' => 'required'
+    //     ,'address' => 'required'
+    //     ,'birhtday' => 'required'
+    //     ,'gender' => 'required'
+    //     // ,'designation' => 'required'
+    //     // ,'salary' => 'required'
+    //     // ,'file_path' => 'required'
+    //     // ,'sssid' => 'required'
+    //     // ,'pagibigid'=> 'required'
+    //     // ,'philhealthid' => 'required'
+    //     // ,'departmentid' => 'required'
+    // ];
 
-    public function Index(){
+    public function __construct(Request $request, EmployeeMaster $employee)
+    {
+        $this->request = $request;
+        $this->employee = $employee;
+    }
 
-        return dd('Loan');
+    public function index(){
+
+        return view('home');
      }
  
-     public function Create(){
+     public function employee(){
  
-         return dd('create');
+        return view('employee.employee')
+        ->with([
+            'employee' => $this->employee->all()
+        ]);
+     }
+  
+     public function employee_create(){
+ 
+        return view('employee.add-employee');
      }
  
-     public function Update($id){
+     public function employee_save(){
  
-         return dd($id);
-     }
- 
-     public function Save($id,$type = null){
- 
-         return dd($id);
+        $db = $this->employee->create(
+            $this->request->except('_token')
+        );
+
+        return Redirect::route('employee');
      }
 }
 
