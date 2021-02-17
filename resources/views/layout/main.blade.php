@@ -3,6 +3,6 @@
     @include('components.navbar')
     @include('components.sidebar')
 
-    @yield ('department')
+    @yield ('content')
 
 @endsection

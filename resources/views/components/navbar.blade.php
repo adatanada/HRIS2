@@ -5,10 +5,11 @@
         <span class="c-sidebar-toggle__bar"></span>
     </button><!-- // .c-sidebar-toggle -->
 
-    <h2 class="c-navbar__title u-mr-auto">HRIS</h2> 
+    <h2 class="c-navbar__title u-mr-auto">HRIS</h2>
 
     <div class="c-dropdown dropdown">
-        <a  class="c-avatar c-avatar--xsmall has-dropdown dropdown-toggle" href="#" id="dropdwonMenuAvatar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="c-avatar c-avatar--xsmall has-dropdown dropdown-toggle" href="#" id="dropdwonMenuAvatar"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <img class="c-avatar__img" src="http://xsodia.space/payroll/assets/john.jpg" alt="User's Profile Picture">
         </a>
 
