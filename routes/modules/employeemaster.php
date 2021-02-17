@@ -9,5 +9,6 @@ Route::group(['prefix' => 'payroll'], function () {
     Route::get('/employee', [EmployeeMasterController::class, 'employee'])->name('employee');
     Route::get('/employee/create', [EmployeeMasterController::class, 'employee_create'])->name('employee.create');
     Route::post('/employee/save', [EmployeeMasterController::class, 'employee_save'])->name('employee.save');
-
+    Route::get('/employee/update/{id}', [EmployeeMasterController::class, 'employee_update'])->name('employee.update');
+    Route::post('/employee/update/save/{id}', [EmployeeMasterController::class, 'employee_update_save'])->name('employee.update.save');
 });

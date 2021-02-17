@@ -60,5 +60,18 @@ class EmployeeMasterController extends Controller
 
         return Redirect::route('employee');
      }
+
+     public function employee_update($id)
+     {
+        return view('employee.update-employee')->with([
+            'data' => $this->employee->find($id)
+        ]);
+     }
+
+     public function employee_update_save($id)
+     {
+        $db = $this->employee->find($id)->update($this->request->except('_token'));
+        return Redirect::route('employee');
+     }
 }
 
