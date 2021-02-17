@@ -70,14 +70,13 @@ class ContributionController extends Controller
             
     }
 
-    public function Delete($iD)
+    public function Delete($type,$iD)
     {
        $this->contribution->find($iD)->delete();
 
-       return Redirect::route('contribution')->with([
+       return Redirect::route('contribution',$type)->with([
         'success'=> 'Contribution has been deleted!',
         'type' => 'danger'
-
         ]);
     }
 }

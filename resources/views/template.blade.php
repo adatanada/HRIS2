@@ -11,7 +11,29 @@
     
     @yield('layout')
 
-<link rel="stylesheet" href="https://xsodia.space/payroll/docs/assets/css/bundle.css">
+    <script src="https://xsodia.space/payroll/docs/assets/js/bundle.js"></script>
+
+
+ <script type="text/javascript">
+            $('body .confirm').click(function(){
+                if(window.confirm("Are you sure you want to proceed ?")){
+                    return true;
+                } 
+                return false;
+            });
+        </script>
+        
+        
+                
+        <style>
+	.alert-card{
+		position: fixed;
+		z-index: 100;
+		width: 30%;
+		top: 2%;
+		right: 1%;
+	}
+</style>
 
 </body>
 </html>

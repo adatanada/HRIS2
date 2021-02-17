@@ -8,7 +8,7 @@
                 <div class="c-table-responsive@desktop">
                     <table class="c-table">
                         <caption class="c-table__title">
-                            Contribution
+                         Contribution
                         </caption>
                         <thead class="c-table__head c-table__head--slim">
                             <tr class="c-table__row">
@@ -40,9 +40,9 @@
                                         <div class="c-dropdown__menu dropdown-menu"
                                             aria-labelledby="dropdownMenuButton21">
                                             <a class="c-dropdown__item dropdown-item"
-                                                href="{{ URL::route('contribution.form',$row->type,$row->id )}}">Update</a>
+                                                href="{{ URL::route('contribution.form',[$row->type,$row->id] )}}">Update</a>
                                             <a class="confirm c-dropdown__item dropdown-item"
-                                                href="{{ URL::route('contribution.delete', $row->id )}}">Delete</a>
+                                                href="{{ URL::route('contribution.delete',[$row->type, $row->id] )}}">Delete</a>
                                         </div>
                                     </div>
                                 </td>

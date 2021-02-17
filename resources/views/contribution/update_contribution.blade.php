@@ -8,7 +8,7 @@
                 <div class="c-table-responsive@desktop">
                     <table class="c-table">
                         <caption class="c-table__title">
-                            Update Contribution
+                            Update  {{ $data->type }} Contribution
                         </caption>
                     </table>
                     <span class="c-divider u-mv-medium"></span>
@@ -27,10 +27,12 @@
                                     <option>SSS</option>
                                     <option>Philhealth</option>
                                     <option>Pagibig</option> -->
+                       
                                     <option @if(old('type')=="Tax") selected @endif>Tax</option>
                                     <option @if(old('type')=="SSS") selected @endif>SSS</option>
-                                    <option @if(old('rating')=="Philhealth") selected @endif>Philhealth</option>
-                                    <option @if(old('rating')=="Pagibig") selected @endif>Pagibig</option>
+                                    <option @if(old('type')=="Philhealth") selected @endif>Philhealth</option>
+                                    <option @if(old('type')=="Pagibig") selected @endif>Pagibig</option>
+                                    
                                 </select>
                             </div>
                         </div>
